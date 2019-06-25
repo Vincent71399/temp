@@ -1,0 +1,4 @@
+pytz
+pytest
+requests
+pandas_market_calendars
