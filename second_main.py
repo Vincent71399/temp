@@ -263,7 +263,7 @@ class TestApp(TestWrapper, TestClient):
         TestClient.__init__(self, wrapper=self)
 
         # self.next_valid_id_handler = self.put_single_order
-        self.next_valid_id_handler = self.put_oca_order
+        # self.next_valid_id_handler = self.put_oca_order
         # self.next_valid_id_handler = self.put_order_with_condition
         # self.next_valid_id_handler = self.basic_order
         # self.next_valid_id_handler = self.put_single_order
@@ -739,6 +739,7 @@ def make_order(action, quantity, price=None):
 
 def index_contract():
     spx_contract = Contract()
+    spx_contract.conId = "416904"
     spx_contract.symbol = 'SPX'
     spx_contract.secType = "IND"
     spx_contract.exchange = "CBOE"
@@ -844,11 +845,11 @@ if __name__ == '__main__':
     #     'NetLiquidation'
     # )
 
-    # app.reqPnL(
-    #     reqId=1,
-    #     account="DU812882",
-    #     modelCode=''
-    # )
+    app.reqPnL(
+        reqId=1,
+        account="DU812882",
+        modelCode=''
+    )
 
     # app.reqPnLSingle(
     #     reqId=1,
@@ -1096,10 +1097,10 @@ if __name__ == '__main__':
 
     # app.reqHistoricalData(
     #     reqId = 1,
-    #     contract = forex_contract3(),
-    #     endDateTime = '20190531 05:00:00',
-    #     durationStr = "24480 S",
-    #     barSizeSetting = "15 secs",
+    #     contract = forex_contract2(),
+    #     endDateTime = '20190503 06:00:00',
+    #     durationStr = "1 D",
+    #     barSizeSetting = "3 mins",
     #     whatToShow = "MIDPOINT",
     #     useRTH = 0,
     #     formatDate = 1,
@@ -1139,7 +1140,7 @@ if __name__ == '__main__':
     incomplete_contract.lastTradeDateOrContractMonth = "20190719"
     incomplete_contract.right = "C"
 
-    # app.reqContractDetails(1, spx_contract)
+    # app.reqContractDetails(1, index_contract())
     #
     # app.reqMktData(
     #     reqId=3,
